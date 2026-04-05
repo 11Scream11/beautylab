@@ -9,28 +9,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
-        
+       
         :root {
             --tw-color-rose: #be185d;
         }
-        
+       
         body {
             font-family: 'Inter', system-ui, sans-serif;
         }
-        
+       
         .title-font {
             font-family: 'Playfair Display', serif;
         }
-        
+       
         .hero-bg {
-            background: linear-gradient(180deg, rgba(190, 24, 93, 0.25), rgba(112, 26, 55, 0.45)), 
+            background: linear-gradient(180deg, rgba(190, 24, 93, 0.25), rgba(112, 26, 55, 0.45)),
                         url('https://images.unsplash.com/photo-1600585154340-be6161a56a9c?q=80&w=2070') center/cover no-repeat;
         }
-        
+       
         .card {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+       
         .card:hover {
             transform: translateY(-8px) scale(1.03);
             box-shadow: 25px 25px 30px -15px rgb(190 24 93 / 0.25);
@@ -39,16 +39,25 @@
         @media (max-width: 640px) {
             .hero-bg h2 { font-size: 2.4rem !important; line-height: 1.05 !important; }
         }
-        
+
+        @media (max-width: 390px) {
+            .hero-bg h2 { font-size: 2.35rem !important; line-height: 1.05 !important; }
+            .section-header { font-size: 2.1rem !important; }
+            .card { padding: 1.25rem !important; }
+            .wifi-inner { padding: 1.5rem !important; }
+            .wifi-password { font-size: 1.75rem !important; }
+            .wifi-image { max-width: 200px !important; }
+        }
+       
         .modal {
             animation: modalPop 0.3s ease forwards;
         }
-        
+       
         @keyframes modalPop {
             0% { opacity: 0; transform: scale(0.95); }
             100% { opacity: 1; transform: scale(1); }
         }
-        
+       
         .section-header::after {
             content: '';
             position: absolute;
@@ -59,21 +68,19 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
         .snack-item {
             transition: all 0.2s ease;
         }
         .snack-item:hover {
             background-color: #fdf4ff;
         }
-
-        /* НОВАЯ АНИМАЦИЯ КНОПКИ — 100/10 премиум */
+       
         .hero-button {
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
-        
+       
         .hero-button::before {
             content: '';
             position: absolute;
@@ -91,12 +98,12 @@
             animation: shine 4s infinite linear;
             opacity: 0;
         }
-        
+       
         .hero-button:hover::before {
             animation: shine 1.2s linear;
             opacity: 1;
         }
-        
+       
         @keyframes shine {
             0% { transform: translateX(-150%) skewX(-25deg); }
             100% { transform: translateX(300%) skewX(-25deg); }
@@ -105,7 +112,6 @@
 </head>
 <body class="bg-white text-gray-900">
 
-    <!-- HERO — только анимация кнопки улучшена -->
     <div class="hero-bg h-screen flex items-center justify-center text-white relative overflow-hidden">
         <div class="absolute top-6 left-6 md:top-8 md:left-8 flex items-center gap-3">
             <div class="w-10 h-10 bg-white/90 backdrop-blur-md rounded-3xl flex items-center justify-center text-3xl shadow-lg">
@@ -113,7 +119,6 @@
             </div>
             <h1 class="title-font text-3xl font-bold tracking-tighter">WISH LAB</h1>
         </div>
-
         <div class="text-center px-5 md:px-6 max-w-xl">
             <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-xl text-white text-sm px-6 py-2 rounded-3xl mb-6 border border-white/30">
                 <span class="relative flex h-3 w-3">
@@ -122,13 +127,12 @@
                 </span>
                 ОТСКАНИРОВАЛ — ТЫ У НАС!
             </div>
-            
+           
             <h2 class="text-5xl md:text-6xl title-font font-bold leading-none mb-4">Добро пожаловать в атмосферу красоты</h2>
             <p class="text-2xl md:text-3xl mb-10">Здесь всё для твоего удовольствия ♡</p>
-            
-            <!-- УЛУЧШЕННАЯ КНОПКА -->
+           
             <div class="flex justify-center gap-4">
-                <a onclick="scrollToSection('menu')" 
+                <a onclick="scrollToSection('menu')"
                    class="hero-button group bg-white/10 hover:bg-white/20 backdrop-blur-2xl border border-white/40 text-white px-10 py-5 rounded-3xl font-semibold text-lg flex items-center gap-4 transition-all duration-300 ease-out hover:scale-105 active:scale-95 hover:shadow-2xl active:shadow-inner">
                     <i class="fa-solid fa-list-ul text-xl group-active:rotate-12 transition-transform"></i>
                     Смотреть меню
@@ -136,19 +140,17 @@
                 </a>
             </div>
         </div>
-
         <div onclick="scrollToSection('menu')" class="absolute bottom-12 left-1/2 -translate-x-1/2 cursor-pointer flex flex-col items-center text-white/80 hover:text-white transition">
             <p class="text-xs tracking-widest mb-1">ПРОКРУТИ ВНИЗ</p>
             <i class="fa-solid fa-chevron-down text-4xl animate-bounce"></i>
         </div>
     </div>
 
-    <!-- ВСЁ ОСТАЛЬНОЕ — БЕЗ ИЗМЕНЕНИЙ (как и просил) -->
     <section id="menu" class="max-w-5xl mx-auto px-5 md:px-6 py-16">
         <h2 class="section-header text-4xl title-font font-semibold text-center mb-12">Что хочешь сделать прямо сейчас?</h2>
-        
+       
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div onclick="showModal('review')" class="card bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-8 cursor-pointer border border-transparent hover:border-amber-200">
+            <div onclick="showModal('review')" class="card bg-gradient-to-br from-amber-50 to-yellow-50 rounded-3xl p-6 sm:p-8 cursor-pointer border border-transparent hover:border-amber-200">
                 <div class="flex justify-between items-start">
                     <div>
                         <i class="fa-solid fa-star text-5xl text-amber-400 mb-6"></i>
@@ -159,7 +161,7 @@
                 </div>
             </div>
 
-            <div onclick="window.open('https://t.me/Wish_Lab?text=Хочу%20проверить%20мой%20кэшбэк!', '_blank')" class="card bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 cursor-pointer border border-transparent hover:border-emerald-200">
+            <div onclick="showModal('cashback')" class="card bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 sm:p-8 cursor-pointer border border-transparent hover:border-emerald-200">
                 <div class="flex justify-between items-start">
                     <div>
                         <i class="fa-solid fa-ruble-sign text-5xl text-emerald-400 mb-6"></i>
@@ -170,7 +172,7 @@
                 </div>
             </div>
 
-            <div onclick="window.open('https://n757778.yclients.com/company/712716/personal/menu?o=', '_blank')" class="card bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 cursor-pointer border border-transparent hover:border-blue-200">
+            <div onclick="window.open('https://n757778.yclients.com/company/712716/personal/menu?o=', '_blank')" class="card bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 sm:p-8 cursor-pointer border border-transparent hover:border-blue-200">
                 <div class="flex justify-between items-start">
                     <div>
                         <i class="fa-solid fa-calendar-check text-5xl text-blue-400 mb-6"></i>
@@ -180,8 +182,7 @@
                     <i class="fa-solid fa-arrow-right text-blue-300 text-3xl"></i>
                 </div>
             </div>
-
-            <div onclick="showSnacksModal()" class="card bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-8 cursor-pointer border border-transparent hover:border-purple-200">
+            <div onclick="showSnacksModal()" class="card bg-gradient-to-br from-purple-50 to-violet-50 rounded-3xl p-6 sm:p-8 cursor-pointer border border-transparent hover:border-purple-200">
                 <div class="flex justify-between items-start">
                     <div>
                         <i class="fa-solid fa-mug-hot text-5xl text-purple-400 mb-6"></i>
@@ -191,8 +192,7 @@
                     <i class="fa-solid fa-arrow-right text-purple-300 text-3xl"></i>
                 </div>
             </div>
-
-            <div onclick="showModal('pamper')" class="card bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-8 cursor-pointer border border-transparent hover:border-rose-300">
+            <div onclick="showModal('pamper')" class="card bg-gradient-to-br from-pink-100 to-rose-100 rounded-3xl p-6 sm:p-8 cursor-pointer border border-transparent hover:border-rose-300">
                 <div class="flex justify-between items-start">
                     <div>
                         <i class="fa-solid fa-spa text-5xl text-pink-500 mb-6"></i>
@@ -205,26 +205,26 @@
         </div>
     </section>
 
-    <section class="bg-gradient-to-r from-rose-50 to-pink-50 py-12">
+    <section class="bg-gradient-to-r from-rose-50 to-pink-50 py-8 md:py-12">
         <div class="max-w-5xl mx-auto px-5 md:px-6">
-            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-10">
+            <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center gap-10 wifi-inner">
                 <div class="flex-1">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-wifi text-4xl text-rose-500"></i>
                         <h2 class="text-3xl title-font font-semibold">Бесплатный Wi-Fi</h2>
                     </div>
                     <p class="text-gray-600 text-xl">Подключайся и чувствуй себя как дома</p>
-                    
+                   
                     <div class="mt-6 bg-red-50 border border-red-200 text-red-600 rounded-2xl p-4 text-center font-medium flex items-center justify-center gap-2">
                         <i class="fa-solid fa-circle-exclamation"></i>
                         Временно Wi-Fi не работает. Приносим извинения за неудобства!
                     </div>
-                    
+                   
                     <div class="mt-8 bg-gray-50 rounded-2xl p-6">
                         <p class="uppercase text-xs tracking-widest text-gray-500 mb-1">Название сети</p>
                         <p class="font-mono text-3xl font-bold mb-6">WishLab_5G</p>
                         <p class="uppercase text-xs tracking-widest text-gray-500 mb-1">Пароль</p>
-                        <div class="flex items-center justify-between bg-white border rounded-2xl px-6 py-5 text-4xl font-mono font-bold text-rose-600 select-all" id="wifi-password">
+                        <div class="flex items-center justify-between bg-white border rounded-2xl px-6 py-5 text-3xl md:text-4xl font-mono font-bold text-rose-600 select-all wifi-password" id="wifi-password">
                             beauty2025
                             <button onclick="copyWifiPassword()" class="text-rose-500 hover:text-rose-700">
                                 <i class="fa-solid fa-copy"></i>
@@ -233,7 +233,7 @@
                     </div>
                 </div>
                 <div class="flex-1 text-center">
-                    <img src="https://picsum.photos/id/1015/600/400" alt="WiFi QR" class="rounded-3xl shadow-2xl mx-auto max-w-[260px] w-full">
+                    <img src="https://picsum.photos/id/1015/600/400" alt="WiFi QR" class="rounded-3xl shadow-2xl mx-auto wifi-image max-w-[200px] md:max-w-[260px] w-full">
                     <p class="text-xs text-gray-500 mt-4">Или отсканируй QR прямо с телефона</p>
                 </div>
             </div>
@@ -243,22 +243,22 @@
     <section class="max-w-5xl mx-auto px-5 md:px-6 py-16">
         <h2 class="section-header text-4xl title-font font-semibold text-center mb-12">Чем заняться во время процедуры?</h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-3xl p-8 text-center card">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 text-center card">
                 <i class="fa-solid fa-mug-hot text-6xl text-rose-400 mb-6"></i>
                 <h4 class="font-semibold text-lg">Закажи чай / кофе и вкусный снек</h4>
                 <p class="text-sm text-gray-500 mt-2">Меню перекусов в разделе выше</p>
             </div>
-            <div class="bg-white rounded-3xl p-8 text-center card">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 text-center card">
                 <i class="fa-solid fa-battery-full text-6xl text-emerald-400 mb-6"></i>
                 <h4 class="font-semibold text-lg">Заряди свой телефон</h4>
                 <p class="text-sm text-gray-500 mt-2">Зарядки у каждого кресла</p>
             </div>
-            <div class="bg-white rounded-3xl p-8 text-center card">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 text-center card">
                 <i class="fa-solid fa-spa text-6xl text-pink-400 mb-6"></i>
                 <h4 class="font-semibold text-lg">Побалуй себя в SPA</h4>
                 <p class="text-sm text-gray-500 mt-2">Дополнительные процедуры</p>
             </div>
-            <div onclick="window.open('https://yandex.ru/maps/org/wishlab_msk/65777229452?si=84pht0vbf8fm9fu5xk33dt3j0w', '_blank')" class="bg-white rounded-3xl p-8 text-center card cursor-pointer hover:bg-pink-50">
+            <div onclick="window.open('https://yandex.ru/maps/org/wishlab_msk/65777229452?si=84pht0vbf8fm9fu5xk33dt3j0w', '_blank')" class="bg-white rounded-3xl p-6 sm:p-8 text-center card cursor-pointer hover:bg-pink-50">
                 <i class="fa-solid fa-comment-dots text-6xl text-amber-400 mb-6"></i>
                 <h4 class="font-semibold text-lg">Оставь отзыв на наш салон</h4>
                 <p class="text-sm text-gray-500 mt-2">Мы очень ценим твоё мнение ❤️</p>
@@ -270,7 +270,7 @@
     <section class="bg-gray-900 text-white py-16">
         <div class="max-w-5xl mx-auto px-5 md:px-6">
             <h2 class="section-header text-4xl title-font font-semibold text-center mb-8 text-white">Наши контакты</h2>
-            
+           
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 <a href="https://www.instagram.com/wishlab_msk?igsh=YTZwNHdvZGhhdWho" target="_blank" class="flex flex-col items-center bg-white/10 hover:bg-white/20 transition-all rounded-3xl px-6 py-8 text-center">
                     <i class="fa-brands fa-instagram text-5xl mb-4"></i>
@@ -295,7 +295,6 @@
             </div>
         </div>
     </section>
-
     <div class="bg-gray-50 py-10">
         <div class="max-w-5xl mx-auto px-5 md:px-6 text-center">
             <div class="inline-flex items-center gap-3 bg-white shadow-md rounded-3xl px-8 py-5">
@@ -309,7 +308,6 @@
             </div>
         </div>
     </div>
-
     <footer class="bg-white border-t py-8 text-center text-xs text-gray-400">
         <p>© WISH LAB • 2026</p>
         <p class="mt-1">Сайт-визитка сделан специально для тебя ❤️</p>
@@ -332,7 +330,7 @@
         function showModal(type) {
             const modal = document.getElementById('modal')
             const content = document.getElementById('modal-content')
-            
+           
             if (type === 'review') {
                 content.innerHTML = `
                     <div class="text-center">
@@ -353,9 +351,29 @@
                         <p class="text-sm text-gray-500 mt-6">Расслабляющая, увлажняющая процедура. Массаж с помощью пилинга и маски</p>
                         <a href="https://t.me/Wish_Lab?text=Хочу%20Спа-уход%20от%20Bandi%201300%20₽%20(расслабляющая%20увлажняющая%20процедура%20с%20пилингом%20и%20маской)!" target="_blank" class="mt-8 block w-full bg-pink-500 text-white py-4 rounded-3xl text-center font-semibold">Заказать в Telegram</a>
                     </div>`
+            } else if (type === 'cashback') {
+                content.innerHTML = `
+                    <div class="text-center">
+                        <i class="fa-solid fa-ruble-sign text-6xl text-emerald-500 mb-6"></i>
+                        <h3 class="text-3xl title-font mb-3">Кэшбек 3% от услуг</h3>
+                        <p class="text-gray-600 mb-3">Со второго визита начисляется кэшбек % по номеру телефона.</p>
+                        <p class="text-gray-600 mb-8">Можно оплатить до 20% баллами</p>
+                        
+                        <button onclick="checkCashback()" 
+                                class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-5 rounded-3xl text-center font-semibold text-lg flex items-center justify-center gap-3 shadow-lg">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Проверить мой кэшбэк в Telegram
+                        </button>
+                    </div>`
             }
             modal.classList.remove('hidden')
             modal.classList.add('flex')
+        }
+
+        function checkCashback() {
+            const message = "Здравствуйте! Можно узнать свой кэшбэк?"
+            window.open(`https://t.me/Wish_Lab?text=${encodeURIComponent(message)}`, '_blank')
+            hideModal()
         }
 
         function hideModal() {
@@ -367,13 +385,13 @@
         function showSnacksModal() {
             const modal = document.getElementById('modal')
             const content = document.getElementById('modal-content')
-            
+           
             let html = `
                 <h3 class="text-3xl title-font mb-2 text-center">Меню перекусов</h3>
                 <p class="text-center text-rose-500 text-sm mb-8">Всё бесплатно для гостей • Поставь галочки и нажми кнопку</p>
-                
+               
                 <div class="space-y-6 max-h-[420px] overflow-y-auto pr-2">`
-
+            
             html += `<h4 class="text-lg font-semibold text-gray-700 mb-3">🍵 Чай</h4>`
             const teas = [
                 "Зелёный: классический / с мелиссой",
@@ -382,39 +400,39 @@
             ]
             teas.forEach(item => {
                 html += `
-                <div onclick="this.querySelector('input').click()" class="snack-item flex items-center justify-between bg-white border border-gray-100 rounded-2xl px-5 py-4 cursor-pointer">
+                <div data-category="Чай" onclick="this.querySelector('input').click()" class="snack-item flex items-center justify-between bg-white border border-gray-100 rounded-2xl px-5 py-4 cursor-pointer">
                     <div class="flex items-center gap-4">
                         <input type="checkbox" class="snack-check w-5 h-5 accent-rose-500 cursor-pointer">
                         <p class="font-medium">${item}</p>
                     </div>
                 </div>`
             })
-
+            
             html += `<h4 class="text-lg font-semibold text-gray-700 mt-8 mb-3">☕️ Кофе</h4>`
             const coffees = ["Эспрессо", "Американо", "Капучино", "Латте"]
             coffees.forEach(item => {
                 html += `
-                <div onclick="this.querySelector('input').click()" class="snack-item flex items-center justify-between bg-white border border-gray-100 rounded-2xl px-5 py-4 cursor-pointer">
+                <div data-category="Кофе" onclick="this.querySelector('input').click()" class="snack-item flex items-center justify-between bg-white border border-gray-100 rounded-2xl px-5 py-4 cursor-pointer">
                     <div class="flex items-center gap-4">
                         <input type="checkbox" class="snack-check w-5 h-5 accent-rose-500 cursor-pointer">
                         <p class="font-medium">${item}</p>
                     </div>
                 </div>`
             })
-
+            
             const categories = [
-                {title: "🥛 Молоко на выбор", items: ["Миндальное", "Кокосовое", "Классическое"]},
-                {title: "🍯 Сиропы", items: ["Ванильный", "Карамельный", "Миндальный", "Кокосовый"]},
-                {title: "🍋 Дополнения", items: ["Корица", "Лимон"]},
-                {title: "🥤 Вода", items: ["Без газа", "С лимоном"]},
-                {title: "🥂 Для настроения", items: ["Игристое сухое", "Вино белое"]}
+                {title: "🥛 Молоко на выбор", cleanName: "Молоко", items: ["Миндальное", "Кокосовое", "Классическое"]},
+                {title: "🍯 Сиропы", cleanName: "Сиропы", items: ["Ванильный", "Карамельный", "Миндальный", "Кокосовый"]},
+                {title: "🍋 Дополнения", cleanName: "Дополнения", items: ["Корица", "Лимон"]},
+                {title: "🥤 Вода", cleanName: "Вода", items: ["Без газа", "С лимоном"]},
+                {title: "🥂 Для настроения", cleanName: "Для настроения", items: ["Игристое сухое", "Вино белое"]}
             ]
-
+            
             categories.forEach(cat => {
                 html += `<h4 class="text-lg font-semibold text-gray-700 mt-8 mb-3">${cat.title}</h4>`
                 cat.items.forEach(item => {
                     html += `
-                    <div onclick="this.querySelector('input').click()" class="snack-item flex items-center justify-between bg-white border border-gray-100 rounded-2xl px-5 py-4 cursor-pointer">
+                    <div data-category="${cat.cleanName}" onclick="this.querySelector('input').click()" class="snack-item flex items-center justify-between bg-white border border-gray-100 rounded-2xl px-5 py-4 cursor-pointer">
                         <div class="flex items-center gap-4">
                             <input type="checkbox" class="snack-check w-5 h-5 accent-rose-500 cursor-pointer">
                             <p class="font-medium">${item}</p>
@@ -422,41 +440,60 @@
                     </div>`
                 })
             })
-
+            
             html += `</div>
                 <button id="order-btn" disabled class="mt-8 w-full bg-gradient-to-r from-purple-500 to-violet-500 text-white py-5 text-xl font-semibold rounded-3xl shadow-lg flex items-center justify-center gap-3">Заказать в Telegram</button>
                 <p class="text-xs text-center text-gray-500 mt-6">Нажми кнопку — сразу откроется чат с администратором</p>`
-            
+           
             content.innerHTML = html
-
             const checks = document.querySelectorAll('.snack-check')
             const btn = document.getElementById('order-btn')
-            
+           
             function updateButton() {
                 const selected = Array.from(checks).filter(c => c.checked).length
                 btn.disabled = selected === 0
             }
-            
+           
             checks.forEach(check => check.addEventListener('change', updateButton))
             btn.addEventListener('click', orderSelectedSnacks)
-            
+           
             modal.classList.remove('hidden')
             modal.classList.add('flex')
         }
 
         function orderSelectedSnacks() {
-            const selected = []
+            const groups = {}
             const checks = document.querySelectorAll('.snack-check')
+            
             checks.forEach((check) => {
                 if (check.checked) {
-                    const text = check.parentElement.parentElement.querySelector('p').textContent.trim()
-                    selected.push(text)
+                    const snackItem = check.closest('.snack-item')
+                    const category = snackItem.dataset.category
+                    const text = snackItem.querySelector('p').textContent.trim()
+                    
+                    if (!groups[category]) groups[category] = []
+                    groups[category].push(text)
                 }
             })
-            
-            if (selected.length === 0) return
-            
-            const message = `Хочу заказать перекусы (бесплатно):\n${selected.join("\n")}`
+           
+            if (Object.keys(groups).length === 0) return
+           
+            const categoryEmojis = {
+                "Чай": "🍵",
+                "Кофе": "☕️",
+                "Молоко": "🥛",
+                "Сиропы": "🍯",
+                "Дополнения": "🍋",
+                "Вода": "🥤",
+                "Для настроения": "🥂"
+            }
+           
+            let message = "Хочу заказать перекусы:\n"
+            for (let [cat, items] of Object.entries(groups)) {
+                const emoji = categoryEmojis[cat] || ""
+                message += `${emoji} ${cat}: ${items.join(", ")}\n`
+            }
+           
             window.open(`https://t.me/Wish_Lab?text=${encodeURIComponent(message)}`, '_blank')
             hideModal()
         }
@@ -477,7 +514,6 @@
 
         window.onload = function() {
             initTailwind()
-            console.log('%c✅ WISH LAB — ГОТОВО! Кнопка теперь с премиум-анимацией (shine + hover + press)', 'color:#be185d; font-size:18px; font-weight:bold')
         }
     </script>
 </body>
